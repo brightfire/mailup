@@ -1,8 +1,37 @@
-= mailup
+= MailUp {<img src="http://travis-ci.org/terra-firma/mailup.png" />}[http://travis-ci.org/terra-firma/mailup] {<img src="https://gemnasium.com/terra-firma/mailup.png" alt="Dependency Status" />}[https://gemnasium.com/terra-firma/mailup]
 
-Description goes here.
+MailUp is a Ruby gem that provides a wrapper for interacting with the {MailUp API}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API].
 
-== Contributing to mailup
+== Requirements
+
+You will need a {MailUp account}[http://www.mailup.com] in order to get started. INSTRUCTIONS FOR ACTIVATING THE API KEY...
+
+== Installation
+
+  (sudo) gem install mailup
+
+== Usage
+
+Please refer to the {Mailup API Documentation}https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API] for more information about the API classes. LOGGING IN. EXAMPLE FROM EACH CLASS
+
+=== Import
+
+  m = MailUp::Import.new('username', 'password')
+
+=== Send
+
+  m = MailUp::Send.new('username', 'password')
+
+=== Manage
+
+  m = MailUp::Manage.new('username', 'password')
+
+=== Report
+
+  m = MailUp::Report.new('username', 'password')
+
+
+== Contributing to Klout
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
@@ -14,6 +43,5 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2012 Brian Getting. See LICENSE.txt for
-further details.
+Copyright (c) 2011 Terra Firma Design & Consulting. See LICENSE.txt for further details.
 

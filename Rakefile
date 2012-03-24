@@ -15,10 +15,10 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "mailup"
-  gem.homepage = "http://github.com/bgetting/mailup"
+  gem.homepage = "http://github.com/terra-firma/mailup"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Ruby gem for interacting with the MailUp API.}
+  gem.description = %Q{Ruby gem for interacting with the MailUp email marketing service API.}
   gem.email = "brian@terra-firma-design.com"
   gem.authors = ["Brian Getting"]
   # dependencies defined in Gemfile
