@@ -12,24 +12,23 @@ You will need a {MailUp account}[http://www.mailup.com] in order to get started.
 
 == Usage
 
-Please refer to the {Mailup API Documentation}https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API] for more information about the API classes. LOGGING IN. EXAMPLE FROM EACH CLASS
+Please refer to the {Mailup API Documentation}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API] for more information about the API classes. Simply create a MailUp object for whichever service you are working with:
 
-=== Import
+  m = MailUp::Import.new('API_Username', 'API_Password')
+  m = MailUp::Manage.new('API_Username', 'API_Password')
+  m = MailUp::Report.new('API_Username', 'API_Password')
+  m = MailUp::Send.new('API_Username', 'API_Password')
 
-  m = MailUp::Import.new('username', 'password')
+You can then run any of the methods that you find in the {Mailup API Documentation}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API] against it. Simply convert the names to the more Ruby-like underscored versions (e.g. GetLists becomes get_lists).
 
-=== Send
+  m = MailUp::Send.new('API_Username', 'API_Password')
+  m.get_lists
+	m.create_list(:name => "My List", :autoId => 'abc123xyz')
+	m.send_newsletter(:listID => '1324', :newsletterID => '5678', [...options...])
+	
+You can easily see what methods are supported for each object:
 
-  m = MailUp::Send.new('username', 'password')
-
-=== Manage
-
-  m = MailUp::Manage.new('username', 'password')
-
-=== Report
-
-  m = MailUp::Report.new('username', 'password')
-
+  m.public_methods
 
 == Contributing to MailUp
  
