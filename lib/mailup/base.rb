@@ -22,7 +22,7 @@ module MailUp
         soap.body = *args
         soap.body.merge!({:accessKey => @access_key}) if @access_key
       end
-      data = XmlSimple.xml_in(response[(api_method+"_response").to_sym], {'ForceArray' => false})
+      data = XmlSimple.xml_in(response[("#{api_method}_response").to_sym], {'ForceArray' => false})
       raise APIError.new(data['errorCode'], data['errorDescription']) unless data['errorCode'] == 0
     end
   end
