@@ -16,11 +16,9 @@ module MailUp
     end
     
     # Make calls to the API
-    def call(api_method, *args)
+    def call(api_method, *args) # :nodoc:
       response = @client.request api_method.to_sym do |soap|
-        # TODO: add args to the body hash
-        soap.body = *args
-        soap.body.merge!({:accessKey => @access_key}) if @access_key
+        soap.body = *args.merge!({:accessKey => @access_key})
       end
       data = XmlSimple.xml_in(response[("#{api_method}_response").to_sym], {'ForceArray' => false})
       raise APIError.new(data['errorCode'], data['errorDescription']) unless data['errorCode'] == 0
