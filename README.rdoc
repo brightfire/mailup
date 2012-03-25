@@ -23,8 +23,7 @@ You can then run any of the methods that you find in the {Mailup API Documentati
 
   m = MailUp::Send.new('API_Username', 'API_Password')
   m.get_lists
-	m.create_list(:name => "My List", :autoId => 'abc123xyz')
-	m.send_newsletter(:listID => '1324', :newsletterID => '5678', [...options...])
+  m.create_list(:name => "My List", :autoId => 'abc123xyz')  m.send_newsletter(:listID => '1324', :newsletterID => '5678', [...options...])
 	
 You can easily see what methods are supported for each object:
 
