@@ -14,17 +14,21 @@ You will need a {MailUp account}[http://www.mailup.com] in order to get started.
 
 Please refer to the {Mailup API Documentation}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API] for more information about the API classes. Simply convert the names to the more Ruby-like underscored versions (e.g. GetLists becomes get_lists).
 
+You can easily see what methods are supported for each object:
+
+  m.public_methods
+
 === Mailup Import WebService
 
 Explanation and link to the documentation...
 
   m = MailUp::Import.new('username', 'password', 'console_url')
+  m.get_nl_lists
 
 === Mailup Manage WebService
 
 Explanation and link to the documentation...
 
-  m = MailUp::Manage.new('username', 'password')
   m = MailUp::Manage.new('username', 'password')
   m.update_list(
     :listID => 1,
@@ -54,10 +58,6 @@ Explanation and link to the documentation...
   m = MailUp::Send.new('username', 'password')
   m.get_lists
   m.get_newsletters(:listID => 1234)
-
-You can easily see what methods are supported for each object:
-
-  m.public_methods
 
 == Contributing to MailUp
  
