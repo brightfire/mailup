@@ -23,14 +23,25 @@ module MailUp
     # Make calls to the API
     def call(api_method, *args) # :nodoc:
       response = @client.request api_method.to_sym do |soap|
+        # (MailUp::Import) Add authentication header
+        soap.header = {"Authentication" => {"User" => @username, "Password" => @password}} if defined?(@username) and defined?(@password)
         body_hash = {}
+        # (MailUp::Manage, MailUp::Report, MailUp::Send) Add access_key
         body_hash.merge!({:accessKey => @access_key}) if defined?(@access_key)
         body_hash.merge!(*args) unless args.empty?
         soap.body = body_hash
       end
-      data = XmlSimple.xml_in(response["#{api_method}_response".to_sym]["#{api_method}_result".to_sym], {'ForceArray' => false})
-      raise APIError.new(data['errorCode'], data['errorDescription']) if data['errorCode'].to_i < 0
-      data.delete_if {|x| x == 'errorCode' or x == 'errorDescription'}
+      if defined?(@username) and defined?(@password)
+        # (MailUp::Import)
+        data = XmlSimple.xml_in(response[:mailup_message][:mailup_body], {'ForceArray' => false})
+        raise APIError.new(data['ReturnCode'], ERRORS[data['ReturnCode'].to_i]) if data['ReturnCode'].to_i < 0
+        data.delete_if {|x| x == 'ReturnCode'}
+      else
+        # (MailUp::Manage, MailUp::Report, MailUp::Send)
+        data = XmlSimple.xml_in(response["#{api_method}_response".to_sym]["#{api_method}_result".to_sym], {'ForceArray' => false})
+        raise APIError.new(data['errorCode'], data['errorDescription']) if data['errorCode'].to_i < 0
+        data.delete_if {|x| x == 'errorCode' or x == 'errorDescription'}
+      end
       data
     end
   end

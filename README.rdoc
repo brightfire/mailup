@@ -4,7 +4,7 @@ MailUp is a Ruby gem that provides a wrapper for interacting with the {MailUp AP
 
 == Requirements
 
-You will need a {MailUp account}[http://www.mailup.com] in order to get started. INSTRUCTIONS FOR ACTIVATING THE API KEY...
+You will need a {MailUp account}[http://www.mailup.com] in order to get started. Once your account is set up, you will need to {activate the API}[https://mailup.atlassian.net/wiki/display/mailupapi/MailUp+API+Credentials] for your account, where you will get your API +username+ and +password+. 
 
 == Installation
 
@@ -14,20 +14,27 @@ You will need a {MailUp account}[http://www.mailup.com] in order to get started.
 
 Please refer to the {Mailup API Documentation}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API] for more information about the API classes. Simply convert the names to the more Ruby-like underscored versions (e.g. GetLists becomes get_lists).
 
-You can easily see what methods are supported for each object:
+=== Mailup Import web service
 
-  m.public_methods
+The {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailupapi/web service+MailUpImport] web service can be used to:
 
-=== Mailup Import WebService
-
-Explanation and link to the documentation...
+* manage the subscribe/unsubscribe
+* import subscribers
+* send subscription confirmation messages
+* {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/web service+MailUpImport]
 
   m = MailUp::Import.new('username', 'password', 'console_url')
   m.get_nl_lists
 
-=== Mailup Manage WebService
+=== Mailup Manage web service
 
-Explanation and link to the documentation...
+The {Mailup Manage web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupManage] web service can be used to:
+
+* Create an email or text message
+* Retrieve a list of existing email or text messages
+* Send or schedule an email or text message
+* Check an email message delivery status
+* {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupManage]
 
   m = MailUp::Manage.new('username', 'password')
   m.update_list(
@@ -44,20 +51,33 @@ Explanation and link to the documentation...
     }
   )
 
-== Mailup Report WebService
+== Mailup Report web service
 
-Explanation and link to the documentation...
+The {Mailup Report web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport] web service can be used to:
+
+* access message statistics
+* {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport]
 
   m = MailUp::Report.new('username', 'password')
 
-=== Mailup Send WebService
+=== Mailup Send web service
 
-Explanation and link to the documentation...
+The {Mailup Send web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend] web service can be used to:
+
+* Create an email or text message
+* Retrieve a list of existing email or text messages
+* Send or schedule an email or text message
+* Check an email message delivery status
+* {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend]
 
   m = MailUp::Send.new('username', 'password')
   m = MailUp::Send.new('username', 'password')
   m.get_lists
   m.get_newsletters(:listID => 1234)
+
+You can easily see what methods are supported for each object:
+
+  m.public_methods
 
 == Contributing to MailUp
  
