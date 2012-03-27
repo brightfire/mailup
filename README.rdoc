@@ -23,6 +23,8 @@ The {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailup
 * send subscription confirmation messages
 * {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport]
 
+Example:
+
   m = MailUp::Import.new('username', 'password', 'console_url')
   m.get_nl_lists
 
@@ -35,6 +37,8 @@ The {Mailup Manage web service}[https://mailup.atlassian.net/wiki/display/mailup
 * Send or schedule an email or text message
 * Check an email message delivery status
 * {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupManage]
+
+Example:
 
   m = MailUp::Manage.new('username', 'password')
   m.update_list(
@@ -58,6 +62,8 @@ The {Mailup Report web service}[https://mailup.atlassian.net/wiki/display/mailup
 * access message statistics
 * {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport]
 
+Example:
+
   m = MailUp::Report.new('username', 'password')
 
 === Mailup Send web service
@@ -69,6 +75,8 @@ The {Mailup Send web service}[https://mailup.atlassian.net/wiki/display/mailupap
 * Send or schedule an email or text message
 * Check an email message delivery status
 * {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend]
+
+Example:
 
   m = MailUp::Send.new('username', 'password')
   m = MailUp::Send.new('username', 'password')
