@@ -13,7 +13,7 @@ You will need a {MailUp account}[http://www.mailup.com] in order to get started.
 
 == Usage
 
-Please refer to the {Mailup API Documentation}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API] for more information about the API classes. Simply convert the names to the more Ruby-like underscored versions (Ex: +GetLists+ becomes +get_lists+).
+Please refer to the {Mailup API Documentation}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API] for more information about the API classes. Simply convert the names to the more Ruby-like underscored versions.
 
 === {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport]
 
