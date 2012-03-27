@@ -16,12 +16,12 @@ Please refer to the {Mailup API Documentation}[https://mailup.atlassian.net/wiki
 
 === Mailup Import web service
 
-The {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailupapi/web service+MailUpImport] web service can be used to:
+The {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport] web service can be used to:
 
 * manage the subscribe/unsubscribe
 * import subscribers
 * send subscription confirmation messages
-* {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/web service+MailUpImport]
+* {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport]
 
   m = MailUp::Import.new('username', 'password', 'console_url')
   m.get_nl_lists
