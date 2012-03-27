@@ -16,10 +16,9 @@ Please refer to the {Mailup API Documentation}[https://mailup.atlassian.net/wiki
 
 === {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport]
 
-Example:
+Example: _(see this url for XML formatting information)_
 
   m = MailUp::Import.new('username', 'password', 'console_url')
-  m.get_nl_lists
   m.new_import_process(
     :idList          => 1,
     # https://mailup.atlassian.net/wiki/display/mailupapi/WSMailUpImport.NewImportProcess+method#WSMailUpImportNewImportProcessmethod-XMLfeed
