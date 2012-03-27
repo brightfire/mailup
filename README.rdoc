@@ -27,6 +27,14 @@ Example:
 
   m = MailUp::Import.new('username', 'password', 'console_url')
   m.get_nl_lists
+  m.new_import_process(
+    :idList          => 1,
+    # https://mailup.atlassian.net/wiki/display/mailupapi/WSMailUpImport.NewImportProcess+method#WSMailUpImportNewImportProcessmethod-XMLfeed
+    :xmlDoc          => contacts_xml_string,
+    :mobileInputType => 1,
+    :idGroups        => "1, 3, 5",
+    ...
+  )
 
 === MailUp Manage web service
 
@@ -42,14 +50,14 @@ Example:
 
   m = MailUp::Manage.new('username', 'password')
   m.update_list(
-    :listID => 1,
+    :listID  => 1,
     :options => {
       "Option" => {
-        "Key" => "owneremail",
+        "Key"   => "owneremail",
         "Value" => "sample@email.com"
       },
       "Option" => {
-        "Key" => "description",
+        "Key"   => "description",
         "Value" => "list description..."
       }
     }
@@ -65,6 +73,10 @@ The {MailUp Report web service}[https://mailup.atlassian.net/wiki/display/mailup
 Example:
 
   m = MailUp::Report.new('username', 'password')
+  m.report_by_message(
+    :listID    => 1,
+    :messageID => 1
+  )
 
 === MailUp Send web service
 
@@ -79,12 +91,30 @@ The {MailUp Send web service}[https://mailup.atlassian.net/wiki/display/mailupap
 Example:
 
   m = MailUp::Send.new('username', 'password')
-  m = MailUp::Send.new('username', 'password')
   m.get_lists
   m.get_newsletters(:listID => 1234)
+  m.send_single_sms(
+    :listID  => 1,
+    :subject => "Sample Subject",
+    :type    => 'TEXT',
+    :content => "This is a sample text message!",
+    :options  => {
+      "Option" => {
+        "Key"   => "note",
+        "Value" => "A note about this text message."
+      },
+      "Option" => {
+        "Key"   => "from",
+        "Value" => "sample@email.com"
+      }
+    }
+  )
+
+=== Supported Methods
 
 You can easily see what methods are supported for each object:
 
+  m = MailUp::Send.new('username', 'password')
   m.public_methods
 
 == Contributing to MailUp
