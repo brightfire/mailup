@@ -1,6 +1,6 @@
 = MailUp {<img src="http://travis-ci.org/terra-firma/mailup.png" />}[http://travis-ci.org/terra-firma/mailup] {<img src="https://gemnasium.com/terra-firma/mailup.png" alt="Dependency Status" />}[https://gemnasium.com/terra-firma/mailup]
 
-MailUp is a Ruby gem that provides a wrapper for interacting with the {MailUp API}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API].
+MailUp is a Ruby gem that provides a wrapper for interacting with the {MailUp API}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API].  
 <b>NOTE: We are still working on this gem, and it is not currently functional.</b>
 
 == Requirements
