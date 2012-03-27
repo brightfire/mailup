@@ -16,12 +16,11 @@ Please refer to the {Mailup API Documentation}[https://mailup.atlassian.net/wiki
 
 === {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport]
 
-Example: _(see this url for XML formatting information)_
+Example: <i>({learn more about XML formatting}[https://mailup.atlassian.net/wiki/display/mailupapi/WSMailUpImport.NewImportProcess+method#WSMailUpImportNewImportProcessmethod-XMLfeed])</i>
 
   m = MailUp::Import.new('username', 'password', 'console_url')
   m.new_import_process(
     :idList          => 1,
-    # https://mailup.atlassian.net/wiki/display/mailupapi/WSMailUpImport.NewImportProcess+method#WSMailUpImportNewImportProcessmethod-XMLfeed
     :xmlDoc          => contacts_xml_string,
     :mobileInputType => 1,
     :idGroups        => "1, 3, 5",
