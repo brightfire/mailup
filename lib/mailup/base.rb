@@ -29,7 +29,7 @@ module MailUp
         soap.body = body_hash
       end
       data = XmlSimple.xml_in(response["#{api_method}_response".to_sym]["#{api_method}_result".to_sym], {'ForceArray' => false})
-      raise APIError.new(data['errorCode'], data['errorDescription']) unless data['errorCode'].to_i == 0
+      raise APIError.new(data['errorCode'], data['errorDescription']) if data['errorCode'].to_i < 0
       data.delete_if {|x| x == 'errorCode' or x == 'errorDescription'}
       data
     end
