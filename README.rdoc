@@ -14,14 +14,7 @@ You will need a {MailUp account}[http://www.mailup.com] in order to get started.
 
 Please refer to the {Mailup API Documentation}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API] for more information about the API classes. Simply convert the names to the more Ruby-like underscored versions (Ex: +GetLists+ becomes +get_lists+).
 
-=== Mailup Import web service
-
-The {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport] web service can be used to:
-
-* manage the subscribe/unsubscribe
-* import subscribers
-* send subscription confirmation messages
-* {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport]
+=== {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport]
 
 Example:
 
@@ -36,15 +29,7 @@ Example:
     ...
   )
 
-=== MailUp Manage web service
-
-The {MailUp Manage web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupManage] web service can be used to:
-
-* Create an email or text message
-* Retrieve a list of existing email or text messages
-* Send or schedule an email or text message
-* Check an email message delivery status
-* {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupManage]
+=== {MailUp Manage web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupManage]
 
 Example:
 
@@ -63,12 +48,7 @@ Example:
     }
   )
 
-=== MailUp Report web service
-
-The {MailUp Report web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport] web service can be used to:
-
-* access message statistics
-* {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport]
+=== {MailUp Report web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport]
 
 Example:
 
@@ -78,15 +58,7 @@ Example:
     :messageID => 1
   )
 
-=== MailUp Send web service
-
-The {MailUp Send web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend] web service can be used to:
-
-* Create an email or text message
-* Retrieve a list of existing email or text messages
-* Send or schedule an email or text message
-* Check an email message delivery status
-* {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend]
+=== {MailUp Send web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend]
 
 Example:
 
