@@ -28,9 +28,9 @@ Example:
   m = MailUp::Import.new('username', 'password', 'console_url')
   m.get_nl_lists
 
-=== Mailup Manage web service
+=== MailUp Manage web service
 
-The {Mailup Manage web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupManage] web service can be used to:
+The {MailUp Manage web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupManage] web service can be used to:
 
 * Create an email or text message
 * Retrieve a list of existing email or text messages
@@ -55,9 +55,9 @@ Example:
     }
   )
 
-== Mailup Report web service
+== MailUp Report web service
 
-The {Mailup Report web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport] web service can be used to:
+The {MailUp Report web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport] web service can be used to:
 
 * access message statistics
 * {etc...}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport]
@@ -66,9 +66,9 @@ Example:
 
   m = MailUp::Report.new('username', 'password')
 
-=== Mailup Send web service
+=== MailUp Send web service
 
-The {Mailup Send web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend] web service can be used to:
+The {MailUp Send web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend] web service can be used to:
 
 * Create an email or text message
 * Retrieve a list of existing email or text messages
