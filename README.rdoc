@@ -1,10 +1,11 @@
 = MailUp {<img src="http://travis-ci.org/terra-firma/mailup.png" />}[http://travis-ci.org/terra-firma/mailup] {<img src="https://gemnasium.com/terra-firma/mailup.png" alt="Dependency Status" />}[https://gemnasium.com/terra-firma/mailup]
 
-MailUp is a Ruby gem that provides a wrapper for interacting with the {MailUp API}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API]. <b>NOTE: We are still working on this gem, and it is not currently functional.</b>
+MailUp is a Ruby gem that provides a wrapper for interacting with the {MailUp API}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API].
+<b>NOTE: We are still working on this gem, and it is not currently functional.</b>
 
 == Requirements
 
-You will need a {MailUp account}[http://www.mailup.com] in order to get started. Once your account is set up, you will need to {activate the API}[https://mailup.atlassian.net/wiki/display/mailupapi/MailUp+API+Credentials] for your account, where you will get your API +username+ and +password+. 
+You will need a {MailUp account}[http://www.mailup.com] in order to get started. Once your account is set up, you will need to {activate the API}[https://mailup.atlassian.net/wiki/display/mailupapi/MailUp+API+Credentials] for your account, where you will get your API username and password. 
 
 == Installation
 
