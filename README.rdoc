@@ -26,17 +26,19 @@ Explanation and link to the documentation...
 
   m = MailUp::Manage.new('username', 'password')
   m = MailUp::Manage.new('username', 'password')
-  m.update_list(:listID => 1,
-                :options => {
-                  "Option" => {
-                    "Key" => "owneremail",
-                    "Value" => "sample@email.com"
-                  },
-                  "Option" => {
-                    "Key" => "description",
-                    "Value" => "list description..."
-                  }
-                })
+  m.update_list(
+    :listID => 1,
+    :options => {
+      "Option" => {
+        "Key" => "owneremail",
+        "Value" => "sample@email.com"
+      },
+      "Option" => {
+        "Key" => "description",
+        "Value" => "list description..."
+      }
+    }
+  )
 
 == Mailup Report WebService
 
