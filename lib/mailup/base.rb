@@ -23,26 +23,27 @@ module MailUp
     # Make calls to the API
     def call(api_method, *args) # :nodoc:
       response = @client.request api_method.to_sym do |soap|
-        # (MailUp::Import) Add authentication header
+        # Add authentication header (if needed)
         soap.header = {"Authentication" => {"User" => @username, "Password" => @password}} if defined?(@username) and defined?(@password)
         body_hash = {}
-        # (MailUp::Manage, MailUp::Report, MailUp::Send) Add access_key
+        # Add access key (if needed)
         body_hash.merge!({:accessKey => @access_key}) if defined?(@access_key)
         body_hash.merge!(*args) unless args.empty?
         soap.body = body_hash
       end
       if defined?(@username) and defined?(@password)
         # (MailUp::Import)
-        data = XmlSimple.xml_in(response[:mailup_message][:mailup_body], {'ForceArray' => false})
-        raise APIError.new(data['ReturnCode'], ERRORS[data['ReturnCode'].to_i]) if data['ReturnCode'].to_i < 0
-        data.delete_if {|x| x == 'ReturnCode'}
+        xml = Nokogiri::XML(response[:mailup_message][:mailup_body])
+        rc = xml.xpath('//ReturnCode').first.content.to_i
+        raise APIError.new(rc, MailUp::Import::ERRORS[rc]) if rc != 0
+        response[:mailup_message][:mailup_body]
       else
         # (MailUp::Manage, MailUp::Report, MailUp::Send)
-        data = XmlSimple.xml_in(response["#{api_method}_response".to_sym]["#{api_method}_result".to_sym], {'ForceArray' => false})
-        raise APIError.new(data['errorCode'], data['errorDescription']) if data['errorCode'].to_i < 0
-        data.delete_if {|x| x == 'errorCode' or x == 'errorDescription'}
+        xml = Nokogiri::XML(response["#{api_method}_response".to_sym]["#{api_method}_result".to_sym])
+        ec, em = xml.xpath('//errorCode').first.content.to_i, xml.xpath('//errorDescription').first.content
+        raise APIError.new(ec, em) if ec != 0
+        response["#{api_method}_response".to_sym]["#{api_method}_result".to_sym]
       end
-      data
     end
   end
   

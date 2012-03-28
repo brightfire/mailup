@@ -1,7 +1,6 @@
 source "http://rubygems.org"
 
 gem 'savon'
-gem 'xml-simple'
 
 group :development do
   gem 'bundler', '> 1.0.0'
