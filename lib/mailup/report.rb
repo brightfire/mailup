@@ -1,5 +1,5 @@
 module MailUp
-  class Report < MailUp::Base
+  class Report < MailUp::Soap
     
     # MailUp Report Service
     # https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpReport

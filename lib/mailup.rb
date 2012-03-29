@@ -1,7 +1,9 @@
+require 'cgi'
 require 'rubygems'
 require 'savon'
 
-require 'mailup/base'
+require 'mailup/api'
+require 'mailup/soap'
 require 'mailup/import'
 require 'mailup/send'
 require 'mailup/manage'

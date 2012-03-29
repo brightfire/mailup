@@ -1,5 +1,5 @@
 module MailUp
-  class Manage < MailUp::Base
+  class Manage < MailUp::Soap
     
     # MailUp Manage Service
     # https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpManage

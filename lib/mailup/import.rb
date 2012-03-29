@@ -1,5 +1,5 @@
 module MailUp
-  class Import < MailUp::Base
+  class Import < MailUp::Soap
     
     # MailUp Import Service
     # https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport

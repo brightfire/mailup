@@ -1,5 +1,5 @@
 module MailUp
-  class Send < MailUp::Base
+  class Send < MailUp::Soap
     
     # MailUp Send Service
     # https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend

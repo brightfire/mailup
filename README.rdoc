@@ -15,7 +15,16 @@ You will need a {MailUp account}[http://www.mailup.com] in order to get started.
 
 Please refer to the {Mailup API Documentation}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API] for more information about the API classes. Simply convert the names to the more Ruby-like underscored versions.
 
-=== {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport]
+=== GET/POST API
+
+  m = MailUp::API.new('console_url')
+  m.xml_subscribe(:email => 'sample@email.com', :list => 1)
+  m.xml_chk_subscriber(:email => 'sample@email.com', :list => 1, :listGuid => 'abcdef')
+  m.xml_unsubscribe(:email => 'sample@email.com', :list => 1, :listGuid => 'abcdef')
+
+=== SOAP API
+
+==== {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport]
 
 Example: <i>({Learn more about XML formatting}[https://mailup.atlassian.net/wiki/display/mailupapi/WSMailUpImport.NewImportProcess+method#WSMailUpImportNewImportProcessmethod-XMLfeed])</i>
 
@@ -28,7 +37,7 @@ Example: <i>({Learn more about XML formatting}[https://mailup.atlassian.net/wiki
     ...
   )
 
-=== {MailUp Manage web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupManage]
+==== {MailUp Manage web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupManage]
 
 Example:
 
@@ -47,7 +56,7 @@ Example:
     }
   )
 
-=== {MailUp Report web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport]
+==== {MailUp Report web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport]
 
 Example:
 
@@ -57,7 +66,7 @@ Example:
     :messageID => 1
   )
 
-=== {MailUp Send web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend]
+==== {MailUp Send web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend]
 
 Example:
 
