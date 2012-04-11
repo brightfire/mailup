@@ -1,7 +1,6 @@
 = MailUp {<img src="http://travis-ci.org/terra-firma/mailup.png" />}[http://travis-ci.org/terra-firma/mailup] {<img src="https://gemnasium.com/terra-firma/mailup.png" alt="Dependency Status" />}[https://gemnasium.com/terra-firma/mailup]
 
-MailUp is a Ruby gem that provides a wrapper for interacting with the {MailUp API}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API].  
-<b>NOTE: We are still working on this gem. The Import service is not currently working, although the +Manage+, +Report+ and +Send+ services are supported.</b>
+MailUp is a Ruby gem that provides a wrapper for interacting with the {MailUp API}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API].
 
 == Requirements
 
@@ -11,91 +10,9 @@ You will need a {MailUp account}[http://www.mailup.com] in order to get started.
 
   (sudo) gem install mailup
 
-== Usage
+== Documentation
 
-Please refer to the {Mailup API Documentation}[https://mailup.atlassian.net/wiki/display/mailupapi/Introducing+the+MailUp+API] for more information about the API classes. Simply convert the names to the more Ruby-like underscored versions.
-
-=== GET/POST API
-
-  m = MailUp::API.new('console_url')
-  m.xml_subscribe(:email => 'sample@email.com', :list => 1)
-  m.xml_chk_subscriber(:email => 'sample@email.com', :list => 1, :listGuid => 'abcdef')
-  m.xml_unsubscribe(:email => 'sample@email.com', :list => 1, :listGuid => 'abcdef')
-
-=== SOAP API
-
-==== {Mailup Import web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpImport]
-
-Example: <i>({Learn more about XML formatting}[https://mailup.atlassian.net/wiki/display/mailupapi/WSMailUpImport.NewImportProcess+method#WSMailUpImportNewImportProcessmethod-XMLfeed])</i>
-
-  m = MailUp::Import.new('username', 'password', 'console_url')
-  m.new_import_process(
-    :idList          => 1,
-    :xmlDoc          => contacts_xml_string,
-    :mobileInputType => 1,
-    :idGroups        => "1, 3, 5",
-    ...
-  )
-
-==== {MailUp Manage web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupManage]
-
-Example:
-
-  m = MailUp::Manage.new('username', 'password')
-  m.update_list(
-    :listID  => 1,
-    :options => {
-      "Option" => {
-        "Key"   => "owneremail",
-        "Value" => "sample@email.com"
-      },
-      "Option" => {
-        "Key"   => "description",
-        "Value" => "list description..."
-      }
-    }
-  )
-
-==== {MailUp Report web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailupReport]
-
-Example:
-
-  m = MailUp::Report.new('username', 'password')
-  m.report_by_message(
-    :listID    => 1,
-    :messageID => 1
-  )
-
-==== {MailUp Send web service}[https://mailup.atlassian.net/wiki/display/mailupapi/WebService+MailUpSend]
-
-Example:
-
-  m = MailUp::Send.new('username', 'password')
-  m.get_lists
-  m.get_newsletters(:listID => 1234)
-  m.send_single_sms(
-    :listID  => 1,
-    :subject => "Sample Subject",
-    :type    => 'TEXT',
-    :content => "This is a sample text message!",
-    :options  => {
-      "Option" => {
-        "Key"   => "note",
-        "Value" => "A note about this text message."
-      },
-      "Option" => {
-        "Key"   => "from",
-        "Value" => "sample@email.com"
-      }
-    }
-  )
-
-=== Supported Methods
-
-You can easily see what methods are supported for each object:
-
-  m = MailUp::Send.new('username', 'password')
-  m.public_methods
+Refer the {Mailup RubyGem Documentation}[https://mailup.atlassian.net/wiki/display/mailupapi/RubyGem].
 
 == Contributing to MailUp
  

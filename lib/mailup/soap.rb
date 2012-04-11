@@ -2,7 +2,7 @@ module MailUp
   class Soap
     # Blank Slate
     instance_methods.each do |m|
-      undef_method m unless m.to_s =~ /^__|object_id|method_missing|respond_to?|public_methods|to_s|inspect|kind_of?|should|should_not|call/
+      undef_method m unless m.to_s =~ /^__|object_id|method_missing|respond_to?|nil?|public_methods|to_s|inspect|kind_of?|should|should_not|call/
     end
     
     # Dynamically find API methods

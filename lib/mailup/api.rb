@@ -1,4 +1,9 @@
 # TODO: Is there any SSL connections to the API?
+# TODO: Can these all be GET or POST?
+#       Is there any benefit to one or the other?
+#       Should we allow people to decide if they use GET or POST?
+# TODO: ws_activation does not seem to be working, but is returning
+#       a code of 0 (success).
 module MailUp
   class API
     # MailUp GET/POST API
@@ -9,11 +14,12 @@ module MailUp
     
     # Blank Slate
     instance_methods.each do |m|
-      undef_method m unless m.to_s =~ /^__|object_id|method_missing|respond_to?|public_methods|to_s|inspect|kind_of?|should|should_not|call/
+      undef_method m unless m.to_s =~ /^__|object_id|method_missing|respond_to?|nil?|public_methods|to_s|inspect|kind_of?|should|should_not|call/
     end
     
     # Dynamically find API methods
     def method_missing(api_method, *args) # :nodoc:
+      raise ArgumentError.new('Please include method parameters.') unless args.size > 0
       params = ''
       args.each do |arg|
         params << arg.map {|k,v| "#{CGI::escape(k.to_s)}=#{CGI::escape(v.to_s)}"}.join("&")
@@ -40,7 +46,7 @@ module MailUp
     
     # Display the supported methods
     def public_methods # :nodoc:
-      [:xml_subscribe, :xml_chk_subscriber, :xml_unsubscribe, :upd_subscriber]
+      [:ws_activation, :xml_subscribe, :xml_chk_subscriber, :xml_unsubscribe, :upd_subscriber]
     end
     
     # Import service error descriptions
