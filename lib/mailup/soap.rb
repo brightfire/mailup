@@ -24,7 +24,7 @@ module MailUp
     def call(api_method, *args) # :nodoc:
       response = @client.request api_method.to_sym do |soap|
         # Add authentication header (if needed)
-        soap.header = {"Authentication" => {"User" => @username, "Password" => @password}} if defined?(@username) and defined?(@password)
+        soap.header = {"ins0:Authentication" => {"ins0:User" => @username, "ins0:Password" => @password}} if defined?(@username) and defined?(@password)
         body_hash = {}
         # Add access key (if needed)
         body_hash.merge!({:accessKey => @access_key}) if defined?(@access_key)
@@ -33,10 +33,10 @@ module MailUp
       end
       if defined?(@username) and defined?(@password)
         # (MailUp::Import)
-        xml = Nokogiri::XML(response[:mailup_message][:mailup_body])
+        xml = Nokogiri::XML(response.body["#{api_method}_response".to_sym]["#{api_method}_result".to_sym])
         rc = xml.xpath('//ReturnCode').first.content.to_i
         raise SoapError.new(rc, MailUp::Import::ERRORS[rc]) if rc != 0
-        response[:mailup_message][:mailup_body]
+        response.body["#{api_method}_response".to_sym]["#{api_method}_result".to_sym]
       else
         # (MailUp::Manage, MailUp::Report, MailUp::Send)
         xml = Nokogiri::XML(response["#{api_method}_response".to_sym]["#{api_method}_result".to_sym])
