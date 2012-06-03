@@ -48,8 +48,10 @@ module MailUp
   end
   
   class SoapError < StandardError
-    def initialize(code, message)
-      super "<#{code}> #{message}"
+    attr_reader :data
+    def initialize(data)
+      @data = data
+      super "The MailUp API responded with the following error code: #{data}"
     end
   end
 end
