@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "mailup"
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Brian Getting"]
-  s.date = "2012-04-20"
+  s.date = "2012-06-03"
   s.description = "Ruby gem for interacting with the MailUp email marketing service API."
   s.email = "brian@terra-firma-design.com"
   s.extra_rdoc_files = [
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
     "lib/mailup/report.rb",
     "lib/mailup/send.rb",
     "lib/mailup/soap.rb",
+    "mailup.gemspec",
     "spec/mailup/mailup_spec.rb",
     "spec/spec_helper.rb"
   ]
