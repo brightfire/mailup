@@ -31,11 +31,11 @@ module MailUp
       # Raise an error if the method was not found.
       super if rc == 404
       # Raise an error if the request did not succeed.
-      raise APIError.new(rc, MailUp::API::HTML_ERRORS[rc]) if rc != 200
+      raise APIError.new(rc) if rc != 200
       # Raise an error if the IP is not authorized.
-      raise APIError.new(rb, "IP not registered") if rb == -1011
+      raise APIError.new(rb) if rb == -1011
       # Raise an error if there was an error returned.
-      raise APIError.new(rb, "Generic error") if rb == 1
+      raise APIError.new(rb) if rb == 1
       rb
     end
     
